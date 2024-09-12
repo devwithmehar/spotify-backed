@@ -2,6 +2,8 @@ import { Request, Response, Router } from 'express';
 import login from './acess/login.js';
 import refresh from './acess/refresh.js';
 import { client_url } from '../config.js';
+import lyrics from './lyrics/lyrics.js';
+
 
 const router = Router();
 
@@ -15,7 +17,7 @@ router.get('/', (req: Request, res: Response) => {
 
 router.use('/login', login);
 router.use('/refresh',refresh);
-
+router.use('/lyrics',lyrics);
 
 
 export default router;
