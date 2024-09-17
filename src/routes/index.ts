@@ -14,6 +14,9 @@ router.get('/', (req: Request, res: Response) => {
     res.redirect(client_url);
 })
 
+router.get('/health', (req: Request, res: Response) => {
+    res.status(200).send('OK');
+});
 
 router.use('/login', login);
 router.use('/refresh',refresh);
