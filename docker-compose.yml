@@ -9,8 +9,8 @@ services:
       context: .
       # This specifies the Dockerfile in your current project directory as the file
       dockerfile: Dockerfile
-    image: spotify-apis
-    container_name: spotify-backend
+    image: spotify-backend-container
+    container_name: spotify-backend-image
     # This defines the restart policy. The default is no,
     # but we have set the container to restart unless it is stopped.
     restart: unless-stopped
