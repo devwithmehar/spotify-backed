@@ -1,5 +1,5 @@
 import express from 'express';
-import { corsUrl, environment } from './config.js';
+import { corsUrl } from './config.js';
 import cors from 'cors';
 import routes from './routes/index.js';
 
