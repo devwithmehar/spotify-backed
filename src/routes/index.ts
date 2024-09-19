@@ -9,10 +9,17 @@ const router = Router();
 
 router.get('/', (req: Request, res: Response) => {
     if (!client_url) {
-        throw new Error('client_url is not defined');
+        console.error('Error: client_url is not defined');
+        return res.status(500).send('Internal Server Error: client_url is not defined');
     }
-    res.redirect(client_url);
-})
+
+    try {
+        res.redirect(client_url);
+    } catch (error) {
+        console.error('Error during redirect:', error);
+        res.status(500).send('Internal Server Error during redirect');
+    }
+});
 
 router.get('/health', (req: Request, res: Response) => {
     res.status(200).send('OK');
