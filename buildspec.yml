@@ -11,8 +11,15 @@ phases:
       - npm run build
   post_build:
     commands:
-      - echo Build completed.
-
+      - echo Preparing artifacts...
+      - cp -r ./build ./deploy/build
+      - cp -r ./node_modules ./deploy/node_modules
 artifacts:
   files:
-    - '**/*'
+    - 'deploy/**/*'
+
+deploy:
+  commands:
+    - echo Deploying and starting the application...
+    - cd deploy
+    - npm start
